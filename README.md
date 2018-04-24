@@ -1,6 +1,6 @@
 # the-pay-gap-bot
 
-This is the Pay Gap twitter bot (https://twitter.com/The_Pay_Gap_Bot), a bot created with JavaScript and Node.js which run on Heroku. It tweets and favourites on intervals, tweets at specific dates and days, replies to mentions and greets new followers.
+<a href="https://twitter.com/The_Pay_Gap_Bot">This is the Pay Gap twitter bot</a>, a bot created with JavaScript and Node.js which run on Heroku. It tweets and favourites on intervals, tweets at specific dates and days, replies to mentions and greets new followers.
 
 In order to make the bot run you need your Twitter API keys (add under config.js) and the twit package installed. 
 
