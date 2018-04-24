@@ -61,10 +61,23 @@ function followed(eventHolla) {
   var name = eventHolla.source.name;
   var screenName = eventHolla.source.screen_name;
 
-  Twitter.post('statuses/update', {
-    status: '@' + screenName + ' Did you know the average woman in the UK earns £1.32/hr less than the average man?'}, tweeted);
-}
+  var sentencesHolla= [
 
+  ' Did you know the median woman in the UK earns £1.32/hr less than the median man?',
+  ' In 2017, the pay gap was 9.1%. Effectively depriving women of ' + amount + '  since January 2018',
+  ' The female workforce in the UK have earned ' + amount + ' less than men since Jan 1st 2018 due to the #paygap'
+
+    ],
+    maxSentences = sentencesHolla.length;
+
+    function getRandomSentenceHolla() {
+        var index = Math.floor(Math.random() * (maxSentences - 1));
+        return sentencesHolla[index];
+    }
+
+  Twitter.post('statuses/update', {
+    status: '@' + screenName + getRandomSentenceHolla()}, tweeted);
+}
 
 // Figure out how big the FULL TIME pay gap is so far
 
@@ -109,7 +122,6 @@ tweetStuff();
 setInterval(tweetStuff, 1000*60*60);
 
 function tweetStuff(){
-  // sentances with no amount var in them will only post once
 var sentences = [
 
 'Women working full time in the UK have so far missed out on ' + amount + ' this year',
@@ -120,6 +132,16 @@ var sentences = [
 'The gender pay gap means UK women are short of ' + amount + ' this year, but for educators the median more than doubles',
 'The median gender pay gap is 9.1%, or ' + amount + ' so far this year. #paygap',
 'UK full time working women has so far this year missed out on ' + amount ,
+'UK Women are underrepresented in top-paid jobs, currently the pay gap means women have missed out on ' + amount,
+'In 82% of companies, women are underrepresented at the top. With a 9.1% national pay gap, that means ' + amount + ' so far this in 2018',
+'The median hourly pay gap means women have missed out on ' + amount + 'so far this year',
+'It is time to close the pay gap. UK women have missed out on ' + amount + ' since January 2018',
+'The pay gap had led to women in the UK earning ' + amount + 'less than men since the beginning of 2018',
+'Although the pay gap has decreased over the past 20 years, UK women have earned ' + amount + ' less than men since Jan 1st 2018',
+'The median hourly pay gap means the female workforce in the UK is short of ' + amount +  ' so far in 2018',
+'The pay gap in 2017 was 9.1%, meaning women are short of ' + amount + ' so far in 2018',
+'Underrepresented in top positions, and the pay gap in the UK means women have been paid ' + amount +  ' less than men so far in 2018',
+'7795 companies out of 10016 pay women less than men. The pay gap comes out to ' + amount +  ' so far in 2018',
 'Only 22% of companies pay women equal or more than men. The pay gap has deprived UK women of ' + amount + ' so far in 2018',
 'Construction, finance and education are the sectors with the largest pay gap.',
 'The median gender pay gap widens the more you earn, with £5.68 less per hour in the top 11% #paygap',
@@ -189,8 +211,8 @@ var dd = todaymonthly.getDate();
 
 if (dd === 27){
   Twitter.post('statuses/update', {
-    status: 'From today until the end of the month, women effectively work for free #paygap'}, tweeted);
-} // if tweeting more than one month, needs to be variation in several sentances, as twitter will not post same twice
+    status: 'From today until the end of the month, women work for free. The #paygap means women are short of ' + amount + 'since Jan 1st'}, tweeted);
+} // make sure this sentance varies for it to be tweeted every month, i.e. with amount variable
 
 
 // WHEN WORKING FOR FREE REST OF THE YEAR
