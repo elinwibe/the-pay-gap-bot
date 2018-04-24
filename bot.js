@@ -109,6 +109,7 @@ tweetStuff();
 setInterval(tweetStuff, 1000*60*60);
 
 function tweetStuff(){
+  // sentances with no amount var in them will only post once
 var sentences = [
 
 'Women working full time in the UK have so far missed out on ' + amount + ' this year',
@@ -189,7 +190,7 @@ var dd = todaymonthly.getDate();
 if (dd === 27){
   Twitter.post('statuses/update', {
     status: 'From today until the end of the month, women effectively work for free #paygap'}, tweeted);
-}
+} // if tweeting more than one month, needs to be variation in several sentances, as twitter will not post same twice
 
 
 // WHEN WORKING FOR FREE REST OF THE YEAR
