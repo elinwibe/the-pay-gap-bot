@@ -84,7 +84,7 @@ function followed(eventHolla) {
 var amount = formatMoney(amount);
 var startDate = new Date(2018, 0, 01);
 var currentDate = new Date();
-var seconds = (startDate - currentDate) / 1000;
+var seconds = (currentDate - startDate) / 1000;
 var modifier = seconds * 718.0362;
 var current = modifier;
 
